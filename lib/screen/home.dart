@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sister/network/api.dart';
 import 'package:get/get.dart';
 import 'dart:convert';
 import 'login.dart';
+import 'package:gridview_menu/gridview_menu.dart';
 
 class Home extends StatefulWidget {
+  final List<MenuItem> menuItem;
+  Home({Key key, @required this.menuItem}) : super(key: key);
+
   @override
   _HomeState createState() => _HomeState();
 }
@@ -33,6 +38,8 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    
+    
     return Scaffold(
       backgroundColor: Color(0xff151515),
       // appBar: AppBar(
@@ -116,27 +123,27 @@ class _HomeState extends State<Home> {
       //   ),
       // ),
       body: Stack(children: [
-        ClipPath(
-          clipper: ClipPathClass(),
-          child: Container(
-            height: 250,
-            width: Get.width,
-            color: Color(0xFFEC2028),
-          ),
-        ),
+        // ClipPath(
+        //   clipper: ClipPathClass(),
+        //   child: Container(
+        //     height: 250,
+        //     width: Get.width,
+        //     color: Color(0xFFEC2028),
+        //   ),
+        // ),
         Container(
-          margin: EdgeInsets.only(top: 20),
+          margin: EdgeInsets.only(top: 30),
           child: Column(children: [
             Container(
               height: Get.height * 0.42,
-              color: Colors.green,
+              color: Colors.white,
               child: Column(
                 children: [
                   Container(
                     padding: EdgeInsets.only(top: 12, left: 15),
                     height: 60,
                     width: Get.width,
-                    color: Color(0xFFE52D27),
+                    color: Colors.white,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -151,6 +158,7 @@ class _HomeState extends State<Home> {
                                       text: "Wercome Back,",
                                       style: TextStyle(
                                         fontSize: 16,
+                                        color: Colors.black,
                                       ),
                                     ),
                                   ],
@@ -162,6 +170,8 @@ class _HomeState extends State<Home> {
                                   text: '${name}',
                                   style: TextStyle(
                                     fontSize: 16,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 )
                               ],
@@ -177,31 +187,128 @@ class _HomeState extends State<Home> {
                       ],
                     ),
                   ),
-                  ClipPath(
-                    clipper: ClipInfoClass(),
-                    child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 25),
-                      height: 200,
-                      decoration: BoxDecoration(
-                          gradient: LinearGradient(colors: [
-                        Color(0xFFE52D27),
-                        Color(0xFFB31217),
-                      ])),
+                  // ClipPath(
+                  //   clipper: ClipInfoClass(),
+                  //   child: Container(
+                  //     margin: EdgeInsets.symmetric(horizontal: 25),
+                  //     height: 200,
+                  //     decoration: BoxDecoration(
+                  //         gradient: LinearGradient(colors: [
+                  //       Color(0xFFE52D27),
+                  //       Color(0xFFB31217),
+                  //     ])),
+
+                  //   ),
+                  // )
+                  Container(
+                    padding: EdgeInsets.all(20),
+                    margin: EdgeInsets.only(left: 15, right: 15, top: 15),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        RichText(
+                          textAlign: TextAlign.right,
+                          text: TextSpan(
+                            text: 'Kartu Tanda Pelajar',
+                            style: TextStyle(
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            CircleAvatar(
+                              radius: 56,
+                              backgroundColor: Colors.red,
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.all(8), // Border radius
+                                child: ClipOval(
+                                    child: Image.asset('assets/icons/qr.png')),
+                                // ClipOval(child: Image.network('imageUrl')),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    '${name}',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  Text(
+                                    'Teknik Koputer Dan Jaringan',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                  Text(
+                                    '3514100512200002',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              'Kelas XI TKJ 1',
+                              style: TextStyle(
+                                color: Colors.black,
+                              ),
+                            ),
+                            Text(
+                              ' | ',
+                              style: TextStyle(
+                                color: Colors.black,
+                              ),
+                            ),
+                            Text(
+                              'Semester 2',
+                              style: TextStyle(
+                                color: Colors.black,
+                              ),
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: Color.fromARGB(255, 250, 250, 4),
+                      // boxShadow: [
+                      //   BoxShadow(color: Colors.blue, spreadRadius: 3),
+                      // ],
                     ),
                   )
                 ],
               ),
             ),
-            Container(
-              height: 7,
-              color: Colors.grey[200],
-            ),
+            // Container(
+            //   height: 7,
+            //   color: Colors.grey[200],
+            // ),
             Expanded(
               child: Container(
-                height: 100,
-                color: Colors.purple,
+                height: 50,
+                color: Colors.white,
+                padding: EdgeInsets.only(left: 15, right: 15),
               ),
-            )
+            ),
+            Container(
+              height: 100,
+              color: Colors.grey[200],
+            ),
           ]),
         )
       ]),
