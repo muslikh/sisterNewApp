@@ -5,17 +5,17 @@ import 'package:sister/network/api.dart';
 import 'package:get/get.dart';
 import 'dart:convert';
 import 'login.dart';
-import 'package:gridview_menu/gridview_menu.dart';
 
 class Home extends StatefulWidget {
-  final List<MenuItem> menuItem;
-  Home({Key key, @required this.menuItem}) : super(key: key);
+  // final List<grid.MenuItem> menuItem;
+  // Home({Key key, @required this.menuItem}) : super(key: key);
 
   @override
   _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
+  bool _showList = false;
   String name = '';
 
   @override
@@ -38,8 +38,8 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    
-    
+
+
     return Scaffold(
       backgroundColor: Color(0xff151515),
       // appBar: AppBar(
@@ -298,12 +298,42 @@ class _HomeState extends State<Home> {
             //   height: 7,
             //   color: Colors.grey[200],
             // ),
-            Expanded(
-              child: Container(
-                height: 50,
-                color: Colors.white,
-                padding: EdgeInsets.only(left: 15, right: 15),
+            Container(
+              height: 50,
+              color: Colors.white,
+              padding: EdgeInsets.only(left: 15, right: 15),
+              child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              'Kelas XI TKJ 1',
+                              style: TextStyle(
+                                color: Colors.black,
+                              ),
+                            ),
+                            Text(
+                              ' | ',
+                              style: TextStyle(
+                                color: Colors.black,
+                              ),
+                            ),
+                            Text(
+                              'Semester 2',
+                              style: TextStyle(
+                                color: Colors.black,
+                              ),
+                            )
+                          ],
+                        ),
               ),
+              // child: IconButton(
+              //     onPressed: () {
+              //       if (mounted)
+              //         setState(() {
+              //           _showList = !_showList;
+              //         });
+              //     },
+              //     icon: Icon(_showList ? Icons.grid_on : Icons.grid_off)),
             ),
             Container(
               height: 100,
