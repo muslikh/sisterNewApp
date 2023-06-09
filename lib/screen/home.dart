@@ -17,6 +17,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   bool _showList = false;
   String name = '';
+  bool _flag = true;
 
   @override
   void initState() {
@@ -38,8 +39,6 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       backgroundColor: Color(0xff151515),
       // appBar: AppBar(
@@ -299,42 +298,107 @@ class _HomeState extends State<Home> {
             //   color: Colors.grey[200],
             // ),
             Container(
-              height: 50,
               color: Colors.white,
-              padding: EdgeInsets.only(left: 15, right: 15),
+              padding: EdgeInsets.all(10),
               child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              'Kelas XI TKJ 1',
-                              style: TextStyle(
-                                color: Colors.black,
-                              ),
-                            ),
-                            Text(
-                              ' | ',
-                              style: TextStyle(
-                                color: Colors.black,
-                              ),
-                            ),
-                            Text(
-                              'Semester 2',
-                              style: TextStyle(
-                                color: Colors.black,
-                              ),
-                            )
-                          ],
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    margin: EdgeInsets.all(10.0),
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            _flag ? Colors.red : Colors.teal),
+                        padding: MaterialStateProperty.all(EdgeInsets.all(10)),
+                        textStyle:
+                            MaterialStateProperty.all(TextStyle(fontSize: 18)),
+                      ),
+                      onPressed: () => setState(() => _flag = !_flag),
+                      child: Column(children: [
+                        Image.asset(
+                          "assets/icons/qr.png",
+                          fit: BoxFit.contain,
                         ),
+                        Text(_flag ? 'Red' : 'Green'),
+                        // Text("Likes", style: TextStyle(color: Colors.black))
+                      ]),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(10.0),
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            _flag ? Colors.red : Colors.teal),
+                        padding: MaterialStateProperty.all(EdgeInsets.all(10)),
+                        textStyle:
+                            MaterialStateProperty.all(TextStyle(fontSize: 18)),
+                      ),
+                      onPressed: () => setState(() => _flag = !_flag),
+                      child: Column(children: [
+                        Image.asset(
+                          "assets/icons/qr.png",
+                          fit: BoxFit.contain,
+                        ),
+                        Text(_flag ? 'Red' : 'Green'),
+                        // Text("Likes", style: TextStyle(color: Colors.black))
+                      ]),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(10.0),
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            _flag ? Colors.red : Colors.teal),
+                        padding: MaterialStateProperty.all(EdgeInsets.all(10)),
+                        textStyle:
+                            MaterialStateProperty.all(TextStyle(fontSize: 18)),
+                      ),
+                      onPressed: () => setState(() => _flag = !_flag),
+                      child: Column(children: [
+                        Image.asset(
+                          "assets/icons/qr.png",
+                          fit: BoxFit.contain,
+                        ),
+                        Text(_flag ? 'Red' : 'Green'),
+                        // Text("Likes", style: TextStyle(color: Colors.black))
+                      ]),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(10.0),
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            _flag ? Colors.red : Colors.teal),
+                        padding: MaterialStateProperty.all(EdgeInsets.all(10)),
+                        textStyle:
+                            MaterialStateProperty.all(TextStyle(fontSize: 18)),
+                      ),
+                      onPressed: () => setState(() => _flag = !_flag),
+                      child: Column(children: [
+                        Image.asset(
+                          "assets/icons/qr.png",
+                          fit: BoxFit.contain,
+                        ),
+                        Text(_flag ? 'Red' : 'Green'),
+                        // Text("Likes", style: TextStyle(color: Colors.black))
+                      ]),
+                    ),
+                  ),
+                ],
               ),
-              // child: IconButton(
-              //     onPressed: () {
-              //       if (mounted)
-              //         setState(() {
-              //           _showList = !_showList;
-              //         });
-              //     },
-              //     icon: Icon(_showList ? Icons.grid_on : Icons.grid_off)),
             ),
+            // child: IconButton(
+            //     onPressed: () {
+            //       if (mounted)
+            //         setState(() {
+            //           _showList = !_showList;
+            //         });
+            //     },
+            //     icon: Icon(_showList ? Icons.grid_on : Icons.grid_off)),
+
             Container(
               height: 100,
               color: Colors.grey[200],
