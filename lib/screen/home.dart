@@ -5,6 +5,7 @@ import 'package:sister/network/api.dart';
 import 'package:get/get.dart';
 import 'dart:convert';
 import 'login.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class Home extends StatefulWidget {
   // final List<grid.MenuItem> menuItem;
@@ -400,8 +401,10 @@ class _HomeState extends State<Home> {
             //     icon: Icon(_showList ? Icons.grid_on : Icons.grid_off)),
 
             Container(
-              height: 100,
-              color: Colors.grey[200],
+              height: 200,
+              color: Colors.red,
+              margin: EdgeInsets.all(5),
+              child: CarouselBerita(),
             ),
           ]),
         )
@@ -462,4 +465,69 @@ class ClipInfoClass extends CustomClipper<Path> {
 
   @override
   bool shouldReclip(covariant CustomClipper oldClipper) => false;
+}
+
+class CarouselBerita extends StatelessWidget {
+  List listBerita = [
+    ['assets/ppdb.jpg', 'PPDB'],
+    ['assets/ppdb.jpg', 'Info PPDB'],
+    ['assets/ppdb.jpg', 'Info PPDB 2022 / 2023']
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(children: [
+        CarouselSlider(
+          items: listBerita.map((i) {
+            return Builder(builder: (BuildContext context) {
+              return GestureDetector(
+                child: Container(
+                  margin: EdgeInsets.all(5.0),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10.0),
+                    image: DecorationImage(
+                      // image: NetworkImage("url"),
+                      image: AssetImage(i[0]),
+                      fit: BoxFit.fitWidth,
+                    ),
+                  ),
+                  child: Stack(
+                    children: <Widget>[
+                      Align(
+                          alignment: Alignment.bottomLeft,
+                          child: Text(
+                            i[1],
+                            style: TextStyle(
+                                fontSize: 30,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
+                          ))
+                    ],
+                  ),
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Home()),
+                  );
+                },
+              );
+            });
+          }).toList(),
+          options: CarouselOptions(
+            height: 150.0,
+            enlargeCenterPage: true,
+            autoPlay: true,
+            aspectRatio: 16 / 9,
+            autoPlayCurve: Curves.fastOutSlowIn,
+            enableInfiniteScroll: true,
+            autoPlayAnimationDuration: Duration(milliseconds: 800),
+            viewportFraction: 0.8,
+          ),
+        ),
+      ]),
+    );
+  }
 }
