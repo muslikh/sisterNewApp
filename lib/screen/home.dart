@@ -122,401 +122,422 @@ class _HomeState extends State<Home> {
       //     ),
       //   ),
       // ),
-      body: Stack(children: [
-        // ClipPath(
-        //   clipper: ClipPathClass(),
-        //   child: Container(
-        //     height: 250,
-        //     width: Get.width,
-        //     color: Color(0xFFEC2028),
-        //   ),
-        // ),
-        Container(
-          margin: EdgeInsets.only(top: 30),
-          child: Column(children: [
-            Container(
-              height: Get.height * 0.42,
-              color: Colors.white,
-              child: Column(
-                children: [
-                  Container(
-                    padding: EdgeInsets.only(top: 12, left: 15),
-                    height: 60,
-                    width: Get.width,
-                    color: Colors.white,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            RichText(
-                                textAlign: TextAlign.right,
-                                text: TextSpan(
+      body: SingleChildScrollView(
+        child: Stack(children: [
+          // ClipPath(
+          //   clipper: ClipPathClass(),
+          //   child: Container(
+          //     height: 250,
+          //     width: Get.width,
+          //     color: Color(0xFFEC2028),
+          //   ),
+          // ),
+          Container(
+            margin: EdgeInsets.only(top: 30),
+            child: Column(children: [
+              Container(
+                height: Get.height * 0.42,
+                color: Colors.white,
+                child: Column(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.only(top: 12, left: 15),
+                      height: 60,
+                      width: Get.width,
+                      color: Colors.white,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              RichText(
+                                  textAlign: TextAlign.right,
+                                  text: TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: "Wercome Back,",
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                    ],
+                                  )),
+                              RichText(
+                                  text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: '${name}',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  )
+                                ],
+                              )),
+                            ],
+                          ),
+                          IconButton(
+                            icon: Icon(Icons.logout_rounded),
+                            onPressed: () {
+                              logout();
+                            },
+                          )
+                        ],
+                      ),
+                    ),
+                    // ClipPath(
+                    //   clipper: ClipInfoClass(),
+                    //   child: Container(
+                    //     margin: EdgeInsets.symmetric(horizontal: 25),
+                    //     height: 200,
+                    //     decoration: BoxDecoration(
+                    //         gradient: LinearGradient(colors: [
+                    //       Color(0xFFE52D27),
+                    //       Color(0xFFB31217),
+                    //     ])),
+
+                    //   ),
+                    // )
+                    Container(
+                      padding: EdgeInsets.all(20),
+                      margin: EdgeInsets.only(left: 15, right: 15, top: 15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          RichText(
+                            textAlign: TextAlign.right,
+                            text: TextSpan(
+                              text: 'Kartu Tanda Pelajar',
+                              style: TextStyle(
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              CircleAvatar(
+                                radius: 56,
+                                backgroundColor: Colors.red,
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.all(8), // Border radius
+                                  child: ClipOval(
+                                      child:
+                                          Image.asset('assets/icons/qr.png')),
+                                  // ClipOval(child: Image.network('imageUrl')),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Column(
                                   children: [
-                                    TextSpan(
-                                      text: "Wercome Back,",
+                                    Text(
+                                      '${name}',
                                       style: TextStyle(
-                                        fontSize: 16,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      'Teknik Koputer Dan Jaringan',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                    Text(
+                                      '3514100512200002',
+                                      style: TextStyle(
                                         color: Colors.black,
                                       ),
                                     ),
                                   ],
-                                )),
-                            RichText(
-                                text: TextSpan(
-                              children: [
-                                TextSpan(
-                                  text: '${name}',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                )
-                              ],
-                            )),
-                          ],
-                        ),
-                        IconButton(
-                          icon: Icon(Icons.logout_rounded),
-                          onPressed: () {
-                            logout();
-                          },
-                        )
-                      ],
-                    ),
-                  ),
-                  // ClipPath(
-                  //   clipper: ClipInfoClass(),
-                  //   child: Container(
-                  //     margin: EdgeInsets.symmetric(horizontal: 25),
-                  //     height: 200,
-                  //     decoration: BoxDecoration(
-                  //         gradient: LinearGradient(colors: [
-                  //       Color(0xFFE52D27),
-                  //       Color(0xFFB31217),
-                  //     ])),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                'Kelas XI TKJ 1',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                ),
+                              ),
+                              Text(
+                                ' | ',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                ),
+                              ),
+                              Text(
+                                'Semester 2',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                ),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Color.fromARGB(255, 250, 250, 4),
+                        // boxShadow: [
+                        //   BoxShadow(color: Colors.blue, spreadRadius: 3),
+                        // ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              // Container(
+              //   height: 7,
+              //   color: Colors.grey[200],
+              // ),
 
-                  //   ),
-                  // )
-                  Container(
-                    padding: EdgeInsets.all(20),
-                    margin: EdgeInsets.only(left: 15, right: 15, top: 15),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              // Menu Awal //
+              Container(
+                color: Colors.white,
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        RichText(
-                          textAlign: TextAlign.right,
-                          text: TextSpan(
-                            text: 'Kartu Tanda Pelajar',
-                            style: TextStyle(
-                              color: Colors.black,
+                        Container(
+                          margin: EdgeInsets.all(10.0),
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(
+                                  _flag ? Colors.red : Colors.teal),
+                              padding:
+                                  MaterialStateProperty.all(EdgeInsets.all(5)),
+                              textStyle: MaterialStateProperty.all(
+                                  TextStyle(fontSize: 14)),
                             ),
+                            onPressed: () => setState(() => _flag = !_flag),
+                            child: Column(children: [
+                              Image.asset(
+                                "assets/icons/qr.png",
+                                fit: BoxFit.contain,
+                              ),
+                              Text(_flag ? 'E-Learning' : 'E-Learning'),
+                              // Text("Likes", style: TextStyle(color: Colors.black))
+                            ]),
                           ),
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            CircleAvatar(
-                              radius: 56,
-                              backgroundColor: Colors.red,
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.all(8), // Border radius
-                                child: ClipOval(
-                                    child: Image.asset('assets/icons/qr.png')),
-                                // ClipOval(child: Image.network('imageUrl')),
-                              ),
+                        Container(
+                          margin: EdgeInsets.all(10.0),
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(
+                                  _flag ? Colors.red : Colors.teal),
+                              padding:
+                                  MaterialStateProperty.all(EdgeInsets.all(5)),
+                              textStyle: MaterialStateProperty.all(
+                                  TextStyle(fontSize: 14)),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: Column(
-                                children: [
-                                  Text(
-                                    '${name}',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  Text(
-                                    'Teknik Koputer Dan Jaringan',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                  Text(
-                                    '3514100512200002',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ],
+                            onPressed: () => setState(() => _flag = !_flag),
+                            child: Column(children: [
+                              Image.asset(
+                                "assets/icons/qr.png",
+                                fit: BoxFit.contain,
                               ),
-                            ),
-                          ],
+                              Text(_flag ? 'Jadwal' : 'Jadwal'),
+                              // Text("Likes", style: TextStyle(color: Colors.black))
+                            ]),
+                          ),
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              'Kelas XI TKJ 1',
-                              style: TextStyle(
-                                color: Colors.black,
-                              ),
+                        Container(
+                          margin: EdgeInsets.all(10.0),
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(
+                                  _flag ? Colors.red : Colors.teal),
+                              padding:
+                                  MaterialStateProperty.all(EdgeInsets.all(5)),
+                              textStyle: MaterialStateProperty.all(
+                                  TextStyle(fontSize: 14)),
                             ),
-                            Text(
-                              ' | ',
-                              style: TextStyle(
-                                color: Colors.black,
+                            onPressed: () => setState(() => _flag = !_flag),
+                            child: Column(children: [
+                              Image.asset(
+                                "assets/icons/qr.png",
+                                fit: BoxFit.contain,
                               ),
+                              Text(_flag ? 'Presensi' : 'Presensi'),
+                              // Text("Likes", style: TextStyle(color: Colors.black))
+                            ]),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(10.0),
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(
+                                  _flag ? Colors.red : Colors.teal),
+                              padding:
+                                  MaterialStateProperty.all(EdgeInsets.all(5)),
+                              textStyle: MaterialStateProperty.all(
+                                  TextStyle(fontSize: 14)),
                             ),
-                            Text(
-                              'Semester 2',
-                              style: TextStyle(
-                                color: Colors.black,
+                            onPressed: () => setState(() => _flag = !_flag),
+                            child: Column(children: [
+                              Image.asset(
+                                "assets/icons/qr.png",
+                                fit: BoxFit.contain,
                               ),
-                            )
-                          ],
-                        )
+                              Text(_flag ? 'Rapor' : 'Rapor'),
+                              // Text("Likes", style: TextStyle(color: Colors.black))
+                            ]),
+                          ),
+                        ),
                       ],
                     ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: Color.fromARGB(255, 250, 250, 4),
-                      // boxShadow: [
-                      //   BoxShadow(color: Colors.blue, spreadRadius: 3),
-                      // ],
+                    //Menu 2//
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          margin: EdgeInsets.all(10.0),
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(
+                                  _flag ? Colors.red : Colors.teal),
+                              padding:
+                                  MaterialStateProperty.all(EdgeInsets.all(5)),
+                              textStyle: MaterialStateProperty.all(
+                                  TextStyle(fontSize: 14)),
+                            ),
+                            onPressed: () => setState(() => _flag = !_flag),
+                            child: Column(children: [
+                              Image.asset(
+                                "assets/icons/qr.png",
+                                fit: BoxFit.contain,
+                              ),
+                              Text(_flag ? 'Prakerin' : 'Prakerin'),
+                              // Text("Likes", style: TextStyle(color: Colors.black))
+                            ]),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(10.0),
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(
+                                  _flag ? Colors.red : Colors.teal),
+                              padding:
+                                  MaterialStateProperty.all(EdgeInsets.all(5)),
+                              textStyle: MaterialStateProperty.all(
+                                  TextStyle(fontSize: 14)),
+                            ),
+                            onPressed: () => setState(() => _flag = !_flag),
+                            child: Column(children: [
+                              Image.asset(
+                                "assets/icons/qr.png",
+                                fit: BoxFit.contain,
+                              ),
+                              Text(_flag ? 'Tabungan' : 'Tabungan'),
+                              // Text("Likes", style: TextStyle(color: Colors.black))
+                            ]),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(10.0),
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(
+                                  _flag ? Colors.red : Colors.teal),
+                              padding:
+                                  MaterialStateProperty.all(EdgeInsets.all(5)),
+                              textStyle: MaterialStateProperty.all(
+                                  TextStyle(fontSize: 14)),
+                            ),
+                            onPressed: () => setState(() => _flag = !_flag),
+                            child: Column(children: [
+                              Image.asset(
+                                "assets/icons/qr.png",
+                                fit: BoxFit.contain,
+                              ),
+                              Text(_flag ? 'E-Wallet' : 'E-Wallet'),
+                              // Text("Likes", style: TextStyle(color: Colors.black))
+                            ]),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(10.0),
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(
+                                  _flag ? Colors.red : Colors.teal),
+                              padding:
+                                  MaterialStateProperty.all(EdgeInsets.all(5)),
+                              textStyle: MaterialStateProperty.all(
+                                  TextStyle(fontSize: 14)),
+                            ),
+                            onPressed: () => setState(() => _flag = !_flag),
+                            child: Column(children: [
+                              Image.asset(
+                                "assets/icons/qr.png",
+                                fit: BoxFit.contain,
+                              ),
+                              Text(_flag ? 'Lainnya' : 'Lainnya'),
+                              // Text("Likes", style: TextStyle(color: Colors.black))
+                            ]),
+                          ),
+                        ),
+                      ],
                     ),
-                  )
-                ],
+                  ],
+                ),
               ),
-            ),
-            // Container(
-            //   height: 7,
-            //   color: Colors.grey[200],
-            // ),
+              // Menu Akhir //
 
-            // Menu Awal //
-            Container(
-              color: Colors.white,
-              padding: EdgeInsets.all(10),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        margin: EdgeInsets.all(10.0),
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                                _flag ? Colors.red : Colors.teal),
-                            padding:
-                                MaterialStateProperty.all(EdgeInsets.all(5)),
-                            textStyle: MaterialStateProperty.all(
-                                TextStyle(fontSize: 14)),
+              // child: IconButton(
+              //     onPressed: () {
+              //       if (mounted)
+              //         setState(() {
+              //           _showList = !_showList;
+              //         });
+              //     },
+              //     icon: Icon(_showList ? Icons.grid_on : Icons.grid_off)),
+
+              // Berita Awal //
+
+              Container(
+                color: Colors.white,
+                child: Column(
+                  children: [
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Berita Terkini",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold),
                           ),
-                          onPressed: () => setState(() => _flag = !_flag),
-                          child: Column(children: [
-                            Image.asset(
-                              "assets/icons/qr.png",
-                              fit: BoxFit.contain,
-                            ),
-                            Text(_flag ? 'E-Learning' : 'E-Learning'),
-                            // Text("Likes", style: TextStyle(color: Colors.black))
-                          ]),
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.all(10.0),
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                                _flag ? Colors.red : Colors.teal),
-                            padding:
-                                MaterialStateProperty.all(EdgeInsets.all(5)),
-                            textStyle: MaterialStateProperty.all(
-                                TextStyle(fontSize: 14)),
-                          ),
-                          onPressed: () => setState(() => _flag = !_flag),
-                          child: Column(children: [
-                            Image.asset(
-                              "assets/icons/qr.png",
-                              fit: BoxFit.contain,
-                            ),
-                            Text(_flag ? 'Jadwal' : 'Jadwal'),
-                            // Text("Likes", style: TextStyle(color: Colors.black))
-                          ]),
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.all(10.0),
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                                _flag ? Colors.red : Colors.teal),
-                            padding:
-                                MaterialStateProperty.all(EdgeInsets.all(5)),
-                            textStyle: MaterialStateProperty.all(
-                                TextStyle(fontSize: 14)),
-                          ),
-                          onPressed: () => setState(() => _flag = !_flag),
-                          child: Column(children: [
-                            Image.asset(
-                              "assets/icons/qr.png",
-                              fit: BoxFit.contain,
-                            ),
-                            Text(_flag ? 'Presensi' : 'Presensi'),
-                            // Text("Likes", style: TextStyle(color: Colors.black))
-                          ]),
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.all(10.0),
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                                _flag ? Colors.red : Colors.teal),
-                            padding:
-                                MaterialStateProperty.all(EdgeInsets.all(5)),
-                            textStyle: MaterialStateProperty.all(
-                                TextStyle(fontSize: 14)),
-                          ),
-                          onPressed: () => setState(() => _flag = !_flag),
-                          child: Column(children: [
-                            Image.asset(
-                              "assets/icons/qr.png",
-                              fit: BoxFit.contain,
-                            ),
-                            Text(_flag ? 'Rapor' : 'Rapor'),
-                            // Text("Likes", style: TextStyle(color: Colors.black))
-                          ]),
-                        ),
-                      ),
-                    ],
-                  ),
-                  //Menu 2//
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        margin: EdgeInsets.all(10.0),
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                                _flag ? Colors.red : Colors.teal),
-                            padding:
-                                MaterialStateProperty.all(EdgeInsets.all(5)),
-                            textStyle: MaterialStateProperty.all(
-                                TextStyle(fontSize: 14)),
-                          ),
-                          onPressed: () => setState(() => _flag = !_flag),
-                          child: Column(children: [
-                            Image.asset(
-                              "assets/icons/qr.png",
-                              fit: BoxFit.contain,
-                            ),
-                            Text(_flag ? 'Prakerin' : 'Prakerin'),
-                            // Text("Likes", style: TextStyle(color: Colors.black))
-                          ]),
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.all(10.0),
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                                _flag ? Colors.red : Colors.teal),
-                            padding:
-                                MaterialStateProperty.all(EdgeInsets.all(5)),
-                            textStyle: MaterialStateProperty.all(
-                                TextStyle(fontSize: 14)),
-                          ),
-                          onPressed: () => setState(() => _flag = !_flag),
-                          child: Column(children: [
-                            Image.asset(
-                              "assets/icons/qr.png",
-                              fit: BoxFit.contain,
-                            ),
-                            Text(_flag ? 'Tabungan' : 'Tabungan'),
-                            // Text("Likes", style: TextStyle(color: Colors.black))
-                          ]),
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.all(10.0),
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                                _flag ? Colors.red : Colors.teal),
-                            padding:
-                                MaterialStateProperty.all(EdgeInsets.all(5)),
-                            textStyle: MaterialStateProperty.all(
-                                TextStyle(fontSize: 14)),
-                          ),
-                          onPressed: () => setState(() => _flag = !_flag),
-                          child: Column(children: [
-                            Image.asset(
-                              "assets/icons/qr.png",
-                              fit: BoxFit.contain,
-                            ),
-                            Text(_flag ? 'E-Wallet' : 'E-Wallet'),
-                            // Text("Likes", style: TextStyle(color: Colors.black))
-                          ]),
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.all(10.0),
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                                _flag ? Colors.red : Colors.teal),
-                            padding:
-                                MaterialStateProperty.all(EdgeInsets.all(5)),
-                            textStyle: MaterialStateProperty.all(
-                                TextStyle(fontSize: 14)),
-                          ),
-                          onPressed: () => setState(() => _flag = !_flag),
-                          child: Column(children: [
-                            Image.asset(
-                              "assets/icons/qr.png",
-                              fit: BoxFit.contain,
-                            ),
-                            Text(_flag ? 'Lainnya' : 'Lainnya'),
-                            // Text("Likes", style: TextStyle(color: Colors.black))
-                          ]),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
+                          Text("Lihat Semua"),
+                        ]),
+                    Container(
+                      height: 150,
+                      child: CarouselBerita(),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            // Menu Akhir //
-
-            // child: IconButton(
-            //     onPressed: () {
-            //       if (mounted)
-            //         setState(() {
-            //           _showList = !_showList;
-            //         });
-            //     },
-            //     icon: Icon(_showList ? Icons.grid_on : Icons.grid_off)),
-
-            // Berita Awal //
-            Container(
-              height: 200,
-              color: Colors.red,
-              margin: EdgeInsets.all(5),
-              child: CarouselBerita(),
-            ),
-            // Berita Akhir //
-          ]),
-        )
-      ]),
+              // Berita Akhir //
+            ]),
+          )
+        ]),
+      ),
     );
   }
 
