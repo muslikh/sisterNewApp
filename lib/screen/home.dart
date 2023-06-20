@@ -3,6 +3,7 @@ import 'package:http/http.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sister/network/api.dart';
 import 'package:get/get.dart';
+import 'package:sister/screen/berita/berita.dart';
 import 'dart:convert';
 import 'login.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -41,55 +42,45 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff151515),
-      // appBar: AppBar(
-      //   centerTitle: false,
-      //   title:Column(
-      //     children: [
-      //       RichText(
-      //       text: TextSpan(
-      //           text: "Wercome Back,",
-      //           style: TextStyle(
-      //             fontSize: 16,
-      //           ),
-      //           children: [
-      //         TextSpan(
-      //             text: '${name}',
-      //             style: TextStyle(
-      //               fontSize: 18,
-      //               fontWeight: FontWeight.bold,
-      //             )
-      //             )
-      //       ]
-      //       )
-      //       )
-      //       ]
-      //       ,),
-      //   //
-      //   backgroundColor: Color(0xFFEC2028),
-      //   elevation: 0,
-      //   automaticallyImplyLeading: false,
-      //   actions: [
-      //     GestureDetector(
-      //       onTap: () {},
-      //       child: Container(
-      //         margin: EdgeInsets.only(right: 20),
-      //         width: 30,
-      //         height: 30,
-      //         child: Image.asset(
-      //           "assets/icons/qr.png",
-      //           fit: BoxFit.contain,
-      //         ),
-      //       ),
-      //     )
-      //     // IconButton(
-      //     //   icon: Icon(Icons.logout_rounded),
-      //     //   onPressed: () {
-      //     //     logout();
-      //     //   },
-      //     // )
-      //   ],
-      // ),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        centerTitle: false,
+        title: Text(
+          "Sister",
+          style: TextStyle(
+            fontSize: 16,
+            color: Colors.black,
+          ),
+        ),
+        //
+        backgroundColor: Colors.white70,
+        elevation: 0,
+        automaticallyImplyLeading: false,
+        actions: [
+          Row(
+            children: [
+              IconButton(
+                icon: Icon(
+                  Icons.notifications_active_rounded,
+                  color: Colors.black,
+                ),
+                onPressed: () {
+                  // logout();
+                },
+              ),
+              IconButton(
+                icon: Icon(
+                  Icons.person,
+                  color: Colors.black,
+                ),
+                onPressed: () {
+                  // logout();
+                },
+              )
+            ],
+          )
+        ],
+      ),
       // body: SafeArea(
       //   child: Container(
       //     padding: EdgeInsets.all(15),
@@ -133,7 +124,6 @@ class _HomeState extends State<Home> {
           //   ),
           // ),
           Container(
-            margin: EdgeInsets.only(top: 30),
             child: Column(children: [
               Container(
                 height: Get.height * 0.42,
@@ -156,7 +146,7 @@ class _HomeState extends State<Home> {
                                   text: TextSpan(
                                     children: [
                                       TextSpan(
-                                        text: "Wercome Back,",
+                                        text: "Welcome Back,",
                                         style: TextStyle(
                                           fontSize: 16,
                                           color: Colors.black,
@@ -443,7 +433,7 @@ class _HomeState extends State<Home> {
                                 "assets/icons/qr.png",
                                 fit: BoxFit.contain,
                               ),
-                              Text(_flag ? 'Tabungan' : 'Tabungan'),
+                              Text(_flag ? 'Konseling' : 'Konseling'),
                               // Text("Likes", style: TextStyle(color: Colors.black))
                             ]),
                           ),
@@ -524,7 +514,22 @@ class _HomeState extends State<Home> {
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold),
                           ),
-                          Text("Lihat Semua"),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Berita()),
+                              );
+                            },
+                            child: Text(
+                              "Lihat Semua",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal),
+                            ),
+                          ),
                         ]),
                     Container(
                       height: 150,
