@@ -6,12 +6,12 @@ import 'package:get/get.dart';
 import 'dart:convert';
 import '../home.dart';
 
-class Berita extends StatefulWidget {
+class Notif extends StatefulWidget {
   @override
-  _BeritaState createState() => _BeritaState();
+  _NotifState createState() => _NotifState();
 }
 
-class _BeritaState extends State<Berita> {
+class _NotifState extends State<Notif> {
   bool _showList = false;
   String name = '';
   bool _flag = true;
@@ -44,7 +44,7 @@ class _BeritaState extends State<Berita> {
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: Text(
-          "Semua Berita",
+          "Notifikasi",
           style: TextStyle(
               color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
         ),

@@ -4,6 +4,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sister/network/api.dart';
 import 'package:get/get.dart';
 import 'package:sister/screen/berita/berita.dart';
+import 'package:sister/screen/notif/notif.dart';
+import 'package:sister/screen/profile/profile.dart';
 import 'dart:convert';
 import 'login.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -46,7 +48,7 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         centerTitle: false,
         title: Text(
-          "Sister",
+          "Sister Apps",
           style: TextStyle(
             fontSize: 16,
             color: Colors.black,
@@ -61,11 +63,15 @@ class _HomeState extends State<Home> {
             children: [
               IconButton(
                 icon: Icon(
-                  Icons.notifications_active_rounded,
+                  Icons.notifications,
                   color: Colors.black,
                 ),
                 onPressed: () {
                   // logout();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Notif()),
+                  );
                 },
               ),
               IconButton(
@@ -74,7 +80,10 @@ class _HomeState extends State<Home> {
                   color: Colors.black,
                 ),
                 onPressed: () {
-                  // logout();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Profile()),
+                  );
                 },
               )
             ],
