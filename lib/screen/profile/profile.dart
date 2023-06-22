@@ -4,6 +4,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sister/network/api.dart';
 import 'package:get/get.dart';
 import 'package:sister/screen/login.dart';
+import 'package:sister/screen/profile/akun.dart';
+import 'package:sister/screen/profile/password.dart';
 import 'dart:convert';
 import '../home.dart';
 
@@ -127,75 +129,242 @@ class _ProfileState extends State<Profile> {
               margin: EdgeInsets.all(20),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                color: Colors.white,
+                color: Colors.transparent,
                 boxShadow: [
-                  BoxShadow(color: Colors.grey, blurRadius: 2),
+                  BoxShadow(color: Colors.white, blurRadius: 2),
                 ],
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text(
-                    "Akun dan Keamanan",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Akun dan Keamanan",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
-                  Text(
-                    "Ubah data akun",
-                    style: TextStyle(color: Colors.black),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.white),
+                      textStyle:
+                          MaterialStateProperty.all(TextStyle(fontSize: 14)),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Akun()),
+                      );
+                    },
+                    child: Row(children: [
+                      Icon(
+                        Icons.person,
+                        color: Colors.red,
+                      ),
+                      Text(
+                        "Ubah data akun",
+                        style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal),
+                      ),
+                      Spacer(),
+                      Icon(
+                        Icons.arrow_right_outlined,
+                        color: Colors.red,
+                        size: 35,
+                      )
+                      // Text("Likes", style: TextStyle(color: Colors.black))
+                    ]),
                   ),
-                  Text(
-                    "Ubah Password",
-                    style: TextStyle(color: Colors.black),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.white),
+                      textStyle:
+                          MaterialStateProperty.all(TextStyle(fontSize: 14)),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Password()),
+                      );
+                    },
+                    child: Row(children: [
+                      Icon(
+                        Icons.lock,
+                        color: Colors.red,
+                      ),
+                      Text(
+                        "Ubah Password",
+                        style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal),
+                      ),
+                      Spacer(),
+                      Icon(
+                        Icons.arrow_right_outlined,
+                        color: Colors.red,
+                        size: 35,
+                      )
+                      // Text("Likes", style: TextStyle(color: Colors.black))
+                    ]),
                   ),
-                  Text(
-                    "Masuk Dengan Biometrik",
-                    style: TextStyle(color: Colors.black),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.white),
+                      textStyle:
+                          MaterialStateProperty.all(TextStyle(fontSize: 14)),
+                    ),
+                    onPressed: () => setState(() => _flag = !_flag),
+                    child: Row(children: [
+                      Icon(
+                        Icons.fingerprint,
+                        color: Colors.red,
+                      ),
+                      Text(
+                        "Masuk Dengan Biometrik",
+                        style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 16,
+                            fontWeight: FontWeight.normal),
+                      ),
+                      Spacer(),
+                      Icon(
+                        _flag ? Icons.toggle_off : Icons.toggle_on,
+                        color: Colors.red,
+                        size: 35,
+                      )
+                      // Text("Likes", style: TextStyle(color: Colors.black))
+                    ]),
                   ),
+                  // SwitchListTile(
+                  //   title: Text('Masuk Dengan Biometrik'),
+                  //   value: true,
+                  //   activeTrackColor: Colors.pink[100],
+                  //   activeColor: Colors.red,
+                  //   onChanged: (value) {},
+                  // ),
                 ],
               ),
             ),
             Container(
               width: Get.width,
-              padding: EdgeInsets.only(top: 10, left: 10, right: 2),
+              padding: EdgeInsets.only(top: 2, left: 2, right: 2),
               margin: EdgeInsets.all(20),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                color: Colors.white,
+                color: Colors.transparent,
                 boxShadow: [
-                  BoxShadow(color: Colors.grey, blurRadius: 2),
+                  BoxShadow(color: Colors.white, blurRadius: 2),
                 ],
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text(
-                    "Info Lainya",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Info Lainya",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
-                  Text(
-                    "Beri Rating",
-                    style: TextStyle(color: Colors.black),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.white),
+                      textStyle:
+                          MaterialStateProperty.all(TextStyle(fontSize: 14)),
+                    ),
+                    onPressed: () {},
+                    child: Row(children: [
+                      Icon(
+                        Icons.stars,
+                        color: Colors.red,
+                      ),
+                      Text(
+                        "Beri Rating",
+                        style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal),
+                      ),
+                      Spacer(),
+                      Icon(
+                        Icons.arrow_right_outlined,
+                        color: Colors.red,
+                        size: 35,
+                      )
+                      // Text("Likes", style: TextStyle(color: Colors.black))
+                    ]),
                   ),
-                  Text(
-                    "Syarat dan ketentuan",
-                    style: TextStyle(color: Colors.black),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.white),
+                      textStyle:
+                          MaterialStateProperty.all(TextStyle(fontSize: 14)),
+                    ),
+                    onPressed: () {},
+                    child: Row(children: [
+                      Icon(
+                        Icons.assignment,
+                        color: Colors.red,
+                      ),
+                      Text(
+                        "Syarat dan ketentuan",
+                        style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal),
+                      ),
+                      Spacer(),
+                      Icon(
+                        Icons.arrow_right_outlined,
+                        color: Colors.red,
+                        size: 35,
+                      )
+                      // Text("Likes", style: TextStyle(color: Colors.black))
+                    ]),
                   ),
-                  Text(
-                    "Kebijakan Privasi",
-                    style: TextStyle(color: Colors.black),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.white),
+                      textStyle:
+                          MaterialStateProperty.all(TextStyle(fontSize: 14)),
+                    ),
+                    onPressed: () {},
+                    child: Row(children: [
+                      Icon(
+                        Icons.privacy_tip,
+                        color: Colors.red,
+                      ),
+                      Text(
+                        "Kebijakan Privasi",
+                        style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal),
+                      ),
+                      Spacer(),
+                      Icon(
+                        Icons.arrow_right_outlined,
+                        color: Colors.red,
+                        size: 35,
+                      )
+                      // Text("Likes", style: TextStyle(color: Colors.black))
+                    ]),
                   ),
                 ],
               ),
             ),
             Container(
               width: Get.width,
-              margin: EdgeInsets.all(20),
+              margin: EdgeInsets.only(left: 20, right: 20, bottom: 10),
               child: ElevatedButton(
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.white),
@@ -206,12 +375,15 @@ class _ProfileState extends State<Profile> {
                   logout();
                 },
                 child: Row(children: [
-                  Icon(Icons.logout),
+                  Icon(
+                    Icons.logout,
+                    color: Colors.red,
+                  ),
                   Text(
                     "Keluar",
                     style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 14,
+                        color: Colors.red,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold),
                   ),
                   // Text("Likes", style: TextStyle(color: Colors.black))
