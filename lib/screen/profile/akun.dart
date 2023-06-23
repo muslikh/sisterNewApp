@@ -243,11 +243,31 @@ class _AkunState extends State<Akun> {
                     return null;
                   },
                 ),
-                TextField(
+                TextFormField(
                   controller: TextEditingController(),
-                  decoration:
-                      InputDecoration(suffixIcon: Icon(Icons.time_to_leave)),
+                  decoration: new InputDecoration(
+                    labelText: "Tanggal Lahir",
+                    labelStyle: TextStyle(color: Colors.grey),
+                    icon: Icon(
+                      Icons.date_range,
+                      color: Colors.grey,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: new BorderRadius.circular(5.0),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(40),
+                      borderSide:
+                          const BorderSide(color: Colors.black, width: 2),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(40),
+                      borderSide: const BorderSide(color: Colors.red, width: 3),
+                    ),
+                  ),
                   readOnly: true,
+                  style: TextStyle(fontSize: 16, color: Colors.black),
+                  cursorColor: Colors.black,
                   onTap: () async {
                     final date = await showDatePicker(
                         context: context,
@@ -256,7 +276,25 @@ class _AkunState extends State<Akun> {
                         lastDate: DateTime(2100));
                     if (date != null) {
                       print(date);
+
+                      setState(() {
+                        selectedDate = date;
+                        String convertedDateTime =
+                            "${date.year.toString()}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}";
+                        // widget.textController.value = TextEditingValue(text: picked.toString());
+                        TextEditingController(text: convertedDateTime);
+                        // widget.textController.value =
+                        //     TextEditingValue(text: convertedDateTime);
+                        // ;
+                      });
                     }
+                  },
+                  keyboardType: TextInputType.text,
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Tanggal Lahir tidak boleh kosong';
+                    }
+                    return null;
                   },
                 ),
                 RaisedButton(
