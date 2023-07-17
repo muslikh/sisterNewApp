@@ -5,6 +5,7 @@ import 'package:sister/network/api.dart';
 import 'package:get/get.dart';
 import 'package:sister/screen/login.dart';
 import 'package:sister/screen/profile/akun.dart';
+import 'package:sister/screen/profile/listAkun.dart';
 import 'package:sister/screen/profile/password.dart';
 import 'dart:convert';
 import '../home.dart';
@@ -157,6 +158,39 @@ class _ProfileState extends State<Profile> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => Akun()),
+                      );
+                    },
+                    child: Row(children: [
+                      Icon(
+                        Icons.person,
+                        color: Colors.red,
+                      ),
+                      Text(
+                        "Lihat Biodata",
+                        style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal),
+                      ),
+                      Spacer(),
+                      Icon(
+                        Icons.arrow_right_outlined,
+                        color: Colors.red,
+                        size: 35,
+                      )
+                      // Text("Likes", style: TextStyle(color: Colors.black))
+                    ]),
+                  ),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.white),
+                      textStyle:
+                          MaterialStateProperty.all(TextStyle(fontSize: 14)),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ListAkun()),
                       );
                     },
                     child: Row(children: [

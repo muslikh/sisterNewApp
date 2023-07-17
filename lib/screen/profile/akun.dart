@@ -16,6 +16,8 @@ class _AkunState extends State<Akun> {
   String name = '';
   bool _flag = true;
 
+  String finalDate;
+
   @override
   void initState() {
     super.initState();
@@ -37,6 +39,9 @@ class _AkunState extends State<Akun> {
   @override
   Widget build(BuildContext context) {
     String Jk;
+    DateTime selectedDate = new DateTime.now();
+    TextEditingController _controller = new TextEditingController();
+    // _controller.text = finalDate;
 
     return Scaffold(
       appBar: AppBar(
@@ -56,8 +61,10 @@ class _AkunState extends State<Akun> {
         child: Form(
           key: _formKey,
           child: Container(
-            padding: EdgeInsets.all(20.0),
+            padding: EdgeInsets.only(top: 20, bottom: 20, left: 20, right: 20),
             child: Column(
+              // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              // crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 // TextField(),
                 TextFormField(
@@ -86,7 +93,9 @@ class _AkunState extends State<Akun> {
                     return null;
                   },
                 ),
-
+                SizedBox(
+                  height: 8,
+                ),
                 TextFormField(
                   decoration: new InputDecoration(
                     labelText: "NISN",
@@ -114,6 +123,9 @@ class _AkunState extends State<Akun> {
                   },
                 ),
 
+                SizedBox(
+                  height: 8,
+                ),
                 TextFormField(
                   decoration: new InputDecoration(
                     labelText: "NIK / No. KTP",
@@ -141,6 +153,9 @@ class _AkunState extends State<Akun> {
                   },
                 ),
 
+                SizedBox(
+                  height: 8,
+                ),
                 TextFormField(
                   decoration: new InputDecoration(
                     labelText: "No. Telepon / HP",
@@ -152,19 +167,14 @@ class _AkunState extends State<Akun> {
                     border: OutlineInputBorder(
                       borderRadius: new BorderRadius.circular(5.0),
                     ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(40),
-                      borderSide:
-                          const BorderSide(color: Colors.black, width: 2),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(40),
-                      borderSide: const BorderSide(color: Colors.red, width: 3),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          style: BorderStyle.solid, color: Colors.black),
                     ),
                   ),
                   style: TextStyle(fontSize: 16, color: Colors.black),
                   cursorColor: Colors.black,
-                  keyboardType: TextInputType.text,
+                  keyboardType: TextInputType.number,
                   validator: (value) {
                     if (value.isEmpty) {
                       return 'No. Telepon tidak boleh kosong';
@@ -172,26 +182,27 @@ class _AkunState extends State<Akun> {
                     return null;
                   },
                 ),
+                SizedBox(
+                  height: 8,
+                ),
                 DropdownButtonFormField<String>(
-                  icon: Icon(
-                    Icons.people,
-                    color: Colors.black,
-                  ),
                   hint: const Text(
                     'Pilih Jenis Kelamin',
                     style: TextStyle(color: Colors.black),
                   ),
                   value: Jk,
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(40),
-                      borderSide:
-                          const BorderSide(color: Colors.black, width: 2),
+                    labelStyle: TextStyle(color: Colors.grey),
+                    icon: Icon(
+                      Icons.people,
+                      color: Colors.grey,
                     ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(40),
-                      borderSide: const BorderSide(color: Colors.red, width: 3),
+                    border: OutlineInputBorder(
+                      borderRadius: new BorderRadius.circular(5.0),
+                    ),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          style: BorderStyle.solid, color: Colors.black),
                     ),
                   ),
                   onChanged: (String newValue) {
@@ -212,25 +223,23 @@ class _AkunState extends State<Akun> {
                   }).toList(),
                 ),
 
+                SizedBox(
+                  height: 8,
+                ),
                 TextFormField(
                   decoration: new InputDecoration(
                     labelText: "Tempat Lahir",
-                    labelStyle: TextStyle(color: Colors.grey),
                     icon: Icon(
                       Icons.people,
                       color: Colors.grey,
                     ),
+                    labelStyle: TextStyle(color: Colors.grey),
                     border: OutlineInputBorder(
                       borderRadius: new BorderRadius.circular(5.0),
                     ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(40),
-                      borderSide:
-                          const BorderSide(color: Colors.black, width: 2),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(40),
-                      borderSide: const BorderSide(color: Colors.red, width: 3),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          style: BorderStyle.solid, color: Colors.black),
                     ),
                   ),
                   style: TextStyle(fontSize: 16, color: Colors.black),
@@ -243,50 +252,42 @@ class _AkunState extends State<Akun> {
                     return null;
                   },
                 ),
+                SizedBox(
+                  height: 8,
+                ),
                 TextFormField(
-                  controller: TextEditingController(),
+                  controller: _controller,
                   decoration: new InputDecoration(
                     labelText: "Tanggal Lahir",
-                    labelStyle: TextStyle(color: Colors.grey),
                     icon: Icon(
                       Icons.date_range,
                       color: Colors.grey,
                     ),
+                    labelStyle: TextStyle(color: Colors.grey),
                     border: OutlineInputBorder(
                       borderRadius: new BorderRadius.circular(5.0),
                     ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(40),
-                      borderSide:
-                          const BorderSide(color: Colors.black, width: 2),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(40),
-                      borderSide: const BorderSide(color: Colors.red, width: 3),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          style: BorderStyle.solid, color: Colors.black),
                     ),
                   ),
                   readOnly: true,
                   style: TextStyle(fontSize: 16, color: Colors.black),
                   cursorColor: Colors.black,
                   onTap: () async {
-                    final date = await showDatePicker(
+                    final DateTime picked = await showDatePicker(
                         context: context,
-                        firstDate: DateTime(1960),
-                        initialDate: DateTime.now(),
-                        lastDate: DateTime(2100));
-                    if (date != null) {
-                      print(date);
-
-                      setState(() {
-                        selectedDate = date;
-                        String convertedDateTime =
-                            "${date.year.toString()}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}";
-                        // widget.textController.value = TextEditingValue(text: picked.toString());
-                        TextEditingController(text: convertedDateTime);
-                        // widget.textController.value =
-                        //     TextEditingValue(text: convertedDateTime);
-                        // ;
-                      });
+                        initialDate: selectedDate,
+                        initialDatePickerMode: DatePickerMode.day,
+                        firstDate: DateTime(1985),
+                        lastDate: DateTime(2024));
+                    if (picked != null) {
+                      String convertedDateTime =
+                          "${picked.year.toString()}-${picked.month.toString().padLeft(2, '0')}-${picked.day.toString().padLeft(2, '0')}";
+                      // finalDate = picked;
+                      //assign the chosen date to the controller
+                      _controller.text = convertedDateTime;
                     }
                   },
                   keyboardType: TextInputType.text,
@@ -297,6 +298,159 @@ class _AkunState extends State<Akun> {
                     return null;
                   },
                 ),
+
+                SizedBox(
+                  height: 8,
+                ),
+                TextFormField(
+                  decoration: new InputDecoration(
+                    labelText: "Agama",
+                    labelStyle: TextStyle(color: Colors.grey),
+                    icon: Icon(
+                      Icons.people,
+                      color: Colors.grey,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: new BorderRadius.circular(5.0),
+                    ),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          style: BorderStyle.solid, color: Colors.black),
+                    ),
+                  ),
+                  style: TextStyle(fontSize: 16, color: Colors.black),
+                  cursorColor: Colors.black,
+                  keyboardType: TextInputType.text,
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Agama tidak boleh kosong';
+                    }
+                    return null;
+                  },
+                ),
+
+
+                SizedBox(
+                  height: 8,
+                ),
+                TextFormField(
+                  decoration: new InputDecoration(
+                    labelText: "Kewarganegaraan",
+                    labelStyle: TextStyle(color: Colors.grey),
+                    icon: Icon(
+                      Icons.people,
+                      color: Colors.grey,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: new BorderRadius.circular(5.0),
+                    ),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          style: BorderStyle.solid, color: Colors.black),
+                    ),
+                  ),
+                  style: TextStyle(fontSize: 16, color: Colors.black),
+                  cursorColor: Colors.black,
+                  keyboardType: TextInputType.text,
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Kewarganegaraan tidak boleh kosong';
+                    }
+                    return null;
+                  },
+                ),
+
+
+                SizedBox(
+                  height: 8,
+                ),
+                TextFormField(
+                  decoration: new InputDecoration(
+                    labelText: "Anak Ke",
+                    labelStyle: TextStyle(color: Colors.grey),
+                    icon: Icon(
+                      Icons.people,
+                      color: Colors.grey,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: new BorderRadius.circular(5.0),
+                    ),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          style: BorderStyle.solid, color: Colors.black),
+                    ),
+                  ),
+                  style: TextStyle(fontSize: 16, color: Colors.black),
+                  cursorColor: Colors.black,
+                  keyboardType: TextInputType.number,
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Anak Ke tidak boleh kosong';
+                    }
+                    return null;
+                  },
+                ),
+
+                SizedBox(
+                  height: 8,
+                ),
+                TextFormField(
+                  decoration: new InputDecoration(
+                    labelText: "Jumlah Saudara Kandung",
+                    labelStyle: TextStyle(color: Colors.grey),
+                    icon: Icon(
+                      Icons.people,
+                      color: Colors.grey,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: new BorderRadius.circular(5.0),
+                    ),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          style: BorderStyle.solid, color: Colors.black),
+                    ),
+                  ),
+                  style: TextStyle(fontSize: 16, color: Colors.black),
+                  cursorColor: Colors.black,
+                  keyboardType: TextInputType.number,
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Jumlah Saudara Kandung tidak boleh kosong';
+                    }
+                    return null;
+                  },
+                ),
+                
+                SizedBox(
+                  height: 8,
+                ),
+                TextFormField(
+                  decoration: new InputDecoration(
+                    labelText: "Jumlah Saudara Tiri",
+                    labelStyle: TextStyle(color: Colors.grey),
+                    icon: Icon(
+                      Icons.people,
+                      color: Colors.grey,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: new BorderRadius.circular(5.0),
+                    ),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          style: BorderStyle.solid, color: Colors.black),
+                    ),
+                  ),
+                  style: TextStyle(fontSize: 16, color: Colors.black),
+                  cursorColor: Colors.black,
+                  keyboardType: TextInputType.number,
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Jumlah saudara tiri tidak boleh kosong';
+                    }
+                    return null;
+                  },
+                ),
+                
                 RaisedButton(
                   child: Text(
                     "Submit",
