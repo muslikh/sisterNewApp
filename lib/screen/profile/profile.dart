@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sister/network/api.dart';
 import 'package:get/get.dart';
 import 'package:sister/screen/login.dart';
-import 'package:sister/screen/profile/akun.dart';
+import 'package:sister/screen/profile/pribadi.dart';
 import 'package:sister/screen/profile/listAkun.dart';
 import 'package:sister/screen/profile/password.dart';
 import 'dart:convert';
@@ -157,7 +157,7 @@ class _ProfileState extends State<Profile> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Akun()),
+                        MaterialPageRoute(builder: (context) => Pribadi()),
                       );
                     },
                     child: Row(children: [
