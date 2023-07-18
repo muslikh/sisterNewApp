@@ -120,7 +120,73 @@ class _NotifState extends State<ListAkun> {
                       color: Colors.red,
                     ),
                     Text(
+                      "Ubah Data Ayah",
+                      style: TextStyle(
+                          color: Colors.red,
+                          fontSize: 14,
+                          fontWeight: FontWeight.normal),
+                    ),
+                    Spacer(),
+                    Icon(
+                      Icons.arrow_right_outlined,
+                      color: Colors.red,
+                      size: 35,
+                    )
+                    // Text("Likes", style: TextStyle(color: Colors.black))
+                  ]),
+                ),
+                ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.white),
+                    textStyle:
+                        MaterialStateProperty.all(TextStyle(fontSize: 14)),
+                  ),
+                  onPressed: () {
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(builder: (context) => ListAkun()),
+                    // );
+                  },
+                  child: Row(children: [
+                    Icon(
+                      Icons.person,
+                      color: Colors.red,
+                    ),
+                    Text(
                       "Ubah Data Ibu",
+                      style: TextStyle(
+                          color: Colors.red,
+                          fontSize: 14,
+                          fontWeight: FontWeight.normal),
+                    ),
+                    Spacer(),
+                    Icon(
+                      Icons.arrow_right_outlined,
+                      color: Colors.red,
+                      size: 35,
+                    )
+                    // Text("Likes", style: TextStyle(color: Colors.black))
+                  ]),
+                ),
+                ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.white),
+                    textStyle:
+                        MaterialStateProperty.all(TextStyle(fontSize: 14)),
+                  ),
+                  onPressed: () {
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(builder: (context) => ListAkun()),
+                    // );
+                  },
+                  child: Row(children: [
+                    Icon(
+                      Icons.person,
+                      color: Colors.red,
+                    ),
+                    Text(
+                      "Ubah Data Wali",
                       style: TextStyle(
                           color: Colors.red,
                           fontSize: 14,

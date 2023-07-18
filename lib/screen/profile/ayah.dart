@@ -6,12 +6,12 @@ import 'package:get/get.dart';
 import 'dart:convert';
 import '../home.dart';
 
-class Pribadi extends StatefulWidget {
+class Ayah extends StatefulWidget {
   @override
-  _PribadiState createState() => _PribadiState();
+  _AyahState createState() => _AyahState();
 }
 
-class _PribadiState extends State<Pribadi> {
+class _AyahState extends State<Ayah> {
   final _formKey = GlobalKey<FormState>();
   String name = '';
   bool _flag = true;

@@ -285,6 +285,104 @@ class _ProfileState extends State<Profile> {
                 ],
               ),
             ),
+
+            //Akun dan Keamanan
+            Container(
+              width: Get.width,
+              padding: EdgeInsets.only(top: 10, left: 10, right: 2),
+              margin: EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: Colors.transparent,
+                boxShadow: [
+                  BoxShadow(color: Colors.white, blurRadius: 2),
+                ],
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Koneksi Internet",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.white),
+                      textStyle:
+                          MaterialStateProperty.all(TextStyle(fontSize: 14)),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Pribadi()),
+                      );
+                    },
+                    child: Row(children: [
+                      Icon(
+                        Icons.person,
+                        color: Colors.red,
+                      ),
+                      Text(
+                        "Data Login Privos.Net",
+                        style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal),
+                      ),
+                      Spacer(),
+                      Icon(
+                        Icons.arrow_right_outlined,
+                        color: Colors.red,
+                        size: 35,
+                      )
+                      // Text("Likes", style: TextStyle(color: Colors.black))
+                    ]),
+                  ),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.white),
+                      textStyle:
+                          MaterialStateProperty.all(TextStyle(fontSize: 14)),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ListAkun()),
+                      );
+                    },
+                    child: Row(children: [
+                      Icon(
+                        Icons.person,
+                        color: Colors.red,
+                      ),
+                      Text(
+                        "Penggunaan Internet",
+                        style: TextStyle(
+                          color: Colors.red,
+                          fontSize: 14,
+                          fontWeight: FontWeight.normal,
+                        ),
+                      ),
+                      Spacer(),
+                      Icon(
+                        Icons.arrow_right_outlined,
+                        color: Colors.red,
+                        size: 35,
+                      )
+                      // Text("Likes", style: TextStyle(color: Colors.black))
+                    ]),
+                  ),
+                ],
+              ),
+            ),
+
+            //info lainyya
             Container(
               width: Get.width,
               padding: EdgeInsets.only(top: 2, left: 2, right: 2),
