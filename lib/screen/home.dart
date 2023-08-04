@@ -48,7 +48,7 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         centerTitle: false,
         title: Text(
-          "Sister Apps",
+          "Privos Mobile Application",
           style: TextStyle(
             fontSize: 16,
             color: Colors.black,
